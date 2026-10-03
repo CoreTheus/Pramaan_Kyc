@@ -1,0 +1,41 @@
+{
+  "kind": "LogisticRegression",
+  "features": [
+    "name_match",
+    "dob_match",
+    "address_match",
+    "document_valid",
+    "ocr_confidence",
+    "document_anomaly",
+    "device_known",
+    "failed_attempts",
+    "previous_flags",
+    "duplicate_identity",
+    "behavior_score"
+  ],
+  "coefficients": [
+    2.665328720898901,
+    2.8941392989707344,
+    1.3500222122320957,
+    2.526540825089313,
+    2.0278453866085306,
+    2.0426276553342575,
+    1.0751931217080668,
+    2.266846664510245,
+    2.0691090801249663,
+    2.704054709669698,
+    1.9127278436830581
+  ],
+  "intercept": -4.479788341856536,
+  "report": {
+    "training_rows": 4000,
+    "held_out_rows": 1000,
+    "seed": 42,
+    "synthetic_only": true,
+    "auc": 0.8964,
+    "accuracy_at_0_5": 0.838,
+    "limitation": "Synthetic labels are sampled from a hand-designed logistic formula. Metrics measure recovery of that formula, not real-world fraud detection.",
+    "ocr_confidence": "Field-completeness proxy, not calibrated OCR confidence.",
+    "split": "80/20 stratified split; independent generated records, no repeated customer identities."
+  }
+}

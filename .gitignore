@@ -1,0 +1,10 @@
+.venv/
+build/
+release/
+!release/
+release/*
+!release/Pramaan_KYC_Portable.zip
+__pycache__/
+*.pyc
+*.log
+SmartKYC/data/cases.sqlite3*

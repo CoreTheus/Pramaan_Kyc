@@ -1,0 +1,58 @@
+PRAMAAN — FIVE-MINUTE DEMO
+=========================
+
+BEFORE PRESENTING
+Run setup.bat once. Start SmartKYC_Server.exe.
+Load 01 / Standard -> Extract & assess once to warm up Ollama.
+Use synthetic samples. Keep the host console open.
+For a projector, open the dashboard in a full-width browser window.
+
+1. THE IDEA (20 seconds)
+"Pramaan adapts verification to the evidence in each application.
+Our host laptop processes documents locally through Ollama. A PC on
+the same WiFi submits applications through this interface."
+
+2. STANDARD (live OCR)
+Click New application -> 01 / Standard -> Extract & assess.
+Show the extracted fields and source document.
+Name, DOB, address, number format and expiry checks pass.
+Expected result: 1 / 100, LOW, Standard verification.
+"This score comes from a logistic model trained on synthetic records."
+
+3. ENHANCED
+Load 02 / Enhanced -> Extract & assess.
+Applicant name differs, device is unknown and there is one failed attempt.
+Expected result: 43 / 100, MEDIUM, Enhanced verification.
+Show the contribution bars and recommended next checks.
+"Bars are model contributions in log-odds, not made-up score-point sums."
+
+4. MANUAL
+Load 03 / Manual -> Extract & assess.
+The birth date conflicts, document is expired, device is unknown and
+there are two failed attempts.
+Expected result: 95 / 100, HIGH, Manual verification.
+Show the explicit DOB-conflict policy override.
+
+5. HUMAN REVIEW
+Enter reviewer name and a reason such as:
+"DOB differs from the form and the sample document has expired.
+Request a current document and resolve the DOB discrepancy."
+Click Flag for review. Open Review queue; reopen the case.
+Show that the reason, reviewer and time persist.
+Optional: Reassess with new evidence creates a linked new case.
+
+6. LAN CLIENT (optional)
+On the second PC, run SmartKYC_Client.exe and enter the host IP:8000.
+Connect; the same dashboard opens and submits images to the host.
+No Ollama or Python is needed on the client.
+
+BACKUP IF OCR IS SLOW
+Select a sample and explicitly click Run labelled rehearsal.
+Say: "This rehearsal uses supplied extraction fields. The scoring,
+routing, persistence and review are live; OCR is skipped here."
+The dashboard visibly marks cached-field cases. Never present them as OCR.
+
+BOUNDARIES TO STATE
+Prototype. Synthetic training data. Supplied device/history signals.
+No government verification, production compliance or guaranteed OCR.
+New real-world documents may need corrections and manual inspection.

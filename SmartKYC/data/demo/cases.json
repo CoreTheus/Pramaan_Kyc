@@ -1,0 +1,74 @@
+{
+  "standard": {
+    "applicant": {
+      "name": "Aarav Sharma",
+      "dob": "1998-04-12",
+      "address": "24 Lake Road, New Delhi 110001"
+    },
+    "fields": {
+      "name": "Aarav Sharma",
+      "dob": "1998-04-12",
+      "document_number": "DEMO482901",
+      "address": "24 Lake Road, New Delhi 110001",
+      "document_type": "Prototype ID",
+      "expiry_date": "2032-12-31"
+    },
+    "signals": {
+      "device_known": true,
+      "failed_attempts": 0,
+      "previous_flags": 0,
+      "duplicate_identity": false,
+      "document_anomaly": false,
+      "behavior_score": 0
+    },
+    "image": "standard.png"
+  },
+  "enhanced": {
+    "applicant": {
+      "name": "Arjun Sharma",
+      "dob": "1998-04-12",
+      "address": "24 Lake Road, New Delhi 110001"
+    },
+    "fields": {
+      "name": "Aarav Sharma",
+      "dob": "1998-04-12",
+      "document_number": "DEMO482901",
+      "address": "24 Lake Road, New Delhi 110001",
+      "document_type": "Prototype ID",
+      "expiry_date": "2032-12-31"
+    },
+    "signals": {
+      "device_known": false,
+      "failed_attempts": 1,
+      "previous_flags": 0,
+      "duplicate_identity": false,
+      "document_anomaly": false,
+      "behavior_score": 0
+    },
+    "image": "enhanced.png"
+  },
+  "manual": {
+    "applicant": {
+      "name": "Aarav Sharma",
+      "dob": "1995-08-21",
+      "address": "24 Lake Road, New Delhi 110001"
+    },
+    "fields": {
+      "name": "Aarav Sharma",
+      "dob": "1998-04-12",
+      "document_number": "DEMO482901",
+      "address": "24 Lake Road, New Delhi 110001",
+      "document_type": "Prototype ID",
+      "expiry_date": "2023-12-31"
+    },
+    "signals": {
+      "device_known": false,
+      "failed_attempts": 2,
+      "previous_flags": 0,
+      "duplicate_identity": false,
+      "document_anomaly": false,
+      "behavior_score": 0
+    },
+    "image": "manual.png"
+  }
+}

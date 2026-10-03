@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Pramaan | Verification desk</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<aside class="sidebar">
+  <a class="brand" href="/"><span class="monogram">प</span><span>pramaan<span class="brand-sub">VERIFICATION DESK</span></span></a>
+  <div class="nav-label">WORKSPACE</div>
+  <button class="nav active" id="newTab"><span>＋</span> New application</button>
+  <button class="nav" id="queueTab"><span>☷</span> Review queue <b id="queueCount">0</b></button>
+  <div class="sidebar-note"><span class="tiny-label">THE PROCESS</span><p>Read the document.<br>Check the evidence.<br>Choose the next step.</p></div>
+  <div class="sidebar-bottom"><span class="status-dot"></span> Local processing <p>Hackathon prototype<br>THE NEGUS · 2026</p></div>
+</aside>
+<main>
+  <header><div class="breadcrumb">Pramaan KYC <span>/</span> <span id="breadcrumb">New application</span></div><span class="prototype">PROTOTYPE</span></header>
+  <div class="page-heading"><div><div class="eyebrow">IDENTITY & DOCUMENT REVIEW</div><h1 id="pageTitle">A clear view of every application.</h1><p>Document evidence, risk signals, and the next verification step — in one place.</p></div><button class="secondary small" id="healthBtn">Check connection</button></div>
+  <div id="connection" class="connection" role="status">Checking the local host…</div>
+  <div id="error" class="error" role="alert" hidden></div>
+  <section id="applicationView">
+    <div class="sample-strip"><div><b>Try a sample</b><span>Fictional documents, three different outcomes.</span></div><div class="sample-buttons"><button data-sample="standard">01 / Standard</button><button data-sample="enhanced">02 / Enhanced</button><button data-sample="manual">03 / Manual</button></div></div>
+    <div class="workspace">
+      <section class="panel intake">
+        <div class="section-top"><span class="step">01</span><div><h2>Applicant & document</h2><p>Enter details as declared by the applicant.</p></div></div>
+        <form id="applicationForm">
+          <label>Full name<input name="name" required autocomplete="off" placeholder="e.g. Aarav Sharma" maxlength="200"></label>
+          <label>Date of birth<input name="dob" type="date" required></label>
+          <label>Address<textarea name="address" rows="2" placeholder="Street, city and postal code" maxlength="600"></textarea></label>
+          <label class="upload" id="uploadLabel"><span class="upload-symbol">↥</span><strong id="fileName">Choose an ID document</strong><span>JPG, PNG or WebP · up to 10 MB</span><input id="document" type="file" accept="image/jpeg,image/png,image/webp" capture="environment"></label>
+          <img id="preview" class="preview" alt="Selected document preview" hidden>
+          <details class="signals"><summary>Device & application signals <span>Demo inputs</span></summary><p class="hint">Supplied inputs for this prototype; device and behavior signals are not automatically detected.</p>
+            <label class="checkbox"><input type="checkbox" name="device_known"> Known device</label>
+            <label class="checkbox"><input type="checkbox" name="document_anomaly"> Document anomaly reported</label>
+            <label class="checkbox"><input type="checkbox" name="duplicate_identity"> Duplicate identity reported</label>
+            <div class="two-cols"><label>Failed attempts<input name="failed_attempts" type="number" min="0" max="5" value="0" required></label><label>Previous flags<input name="previous_flags" type="number" min="0" max="3" value="0" required></label></div>
+            <label>Behavior concern (0–100)<input name="behavior_score" type="number" min="0" max="100" value="0" required></label>
+          </details>
+          <p id="parentNote" class="hint" hidden></p>
+          <button id="submitBtn" class="primary full" type="submit">Extract & assess <span>→</span></button>
+          <p class="hint center">Image processed on the host through Ollama.</p>
+        </form>
+        <div id="rehearsalBox" class="rehearsal" hidden><b>Need a quick rehearsal?</b><p>Use supplied fields to demonstrate scoring and review. This skips OCR and is visibly labelled.</p><button id="rehearsalBtn" class="secondary full">Run labelled rehearsal</button></div>
+      </section>
+      <div class="result-column">
+        <section id="emptyState" class="panel empty"><div class="paper-icon"><span></span><span></span><span></span></div><div class="eyebrow">READY WHEN YOU ARE</div><h2>Start with the evidence.</h2><p>Upload a document or load a sample.<br>Extracted details and verification results will appear here.</p><div class="flow"><span>Extract</span><i>→</i><span>Check</span><i>→</i><span>Assess</span><i>→</i><span>Review</span></div></section>
+        <section id="processing" class="panel processing" hidden><div class="spinner"></div><h2>Reading the document</h2><p>Local vision is extracting identity fields.<br>The first request may take longer while the model loads.</p><span id="elapsed">0 seconds</span></section>
+        <div id="result" hidden></div>
+      </div>
+    </div>
+  </section>
+  <section id="queueView" hidden><div class="queue-heading"><h2>Application history</h2><div><select id="queueFilter" aria-label="Filter cases"><option value="all">All cases</option><option value="pending">Awaiting review</option><option value="Manual">Manual route</option><option value="Enhanced">Enhanced route</option><option value="Standard">Standard route</option></select><button id="refreshQueue" class="secondary small">Refresh</button></div></div><div id="queueTable" class="panel"></div></section>
+  <footer><span>Pramaan KYC · Local inference · Human review</span><span>Synthetic risk model. No issuer or government verification.</span></footer>
+</main>
+<script src="/app.js"></script>
+</body></html>

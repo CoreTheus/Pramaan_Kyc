@@ -1,0 +1,10 @@
+{
+  "server_port": 8000,
+  "ollama_url": "http://127.0.0.1:11434",
+  "ollama_model": "qwen2.5vl:3b",
+  "ocr_timeout_seconds": 240,
+  "standard_max": 35,
+  "enhanced_max": 70,
+  "max_upload_mb": 10,
+  "open_browser": true
+}
